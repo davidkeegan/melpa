@@ -14,13 +14,6 @@ trap kill_all_jobs SIGINT SIGTERM
 function build_all {
     PATH=$HOME/.cabal/bin:$HOME/usr/bin:$HOME/bin:$PATH
 
-    ## git pull
-    cd ${MELPA_HOME}
-    git fetch origin
-    git reset --hard origin/${MELPA_BRANCH}
-    git pull origin ${MELPA_BRANCH}
-    echo
-
     ## run the script
     cd ${MELPA_HOME}
     # grep --files-with-match wiki recipes/* | xargs make -j1 &

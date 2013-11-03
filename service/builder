@@ -3,6 +3,15 @@
 export HOME=/home/melpa
 cd ${HOME}/melpa
 
+source $HOME/scripts/env
+
+## git pull
+cd ${MELPA_HOME}
+git fetch origin
+git reset --hard origin/${MELPA_BRANCH}
+git pull origin ${MELPA_BRANCH}
+echo
+
 # Build all the packages.
 scripts/parallel_build_all
 
